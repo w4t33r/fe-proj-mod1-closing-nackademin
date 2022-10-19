@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vadzim_solution</title>
+    <!-- https://fontawesome.com/ using this for icons buttons !-->
+    <script src="https://kit.fontawesome.com/0cec7a73f5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+
+<div class="header">
+    <label class="file_upload">
+        <input type="file" id="file-selector" multiple/>
+        <i class="fa fa-cloud-upload"></i>
+    </label>
+    <div class="search-box">
+        <input class="search-txt" type="text" id='submit' placeholder="sök-ord"/>
+        <!-- used https://fontawesome.com/ for the icons buttons !-->
+        <a class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+    </div>
+</div>
+
+<form class="table_container" name="table_create">
+    <div class="outData"></div>
+    <table id="table">
+        <thead>
+        <tr>
+            <th>Match</th>
+            <th>Matched by</th>
+            <th>Grupp</th>
+            <th>Discord</th>
+            <th>Github</th>
+            <th>PersonalityType</th>
+            <th>Skills</th>
+            <th>PositiveExperience</th>
+            <th>Explanation</th>
+        </tr>
+        </thead>
+        <tbody id="data-output"></tbody>
+    </table>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
+
+<!-- problemformureling
+1.File upload problem / work with multiple files.
+                                    (node:fs)
+The problem with working with files is that initially I tried to solve the problem using
+node fs, to work with directories, it was quite simple to process several files until I started including the html template
+I soon realized that there was a problem between the node and the web in js.
+I expected that the browserify(npm)extension would solve the interaction problem, but nothing worked out here either,
+after reading the documentation, I realized that this method is simply impossible to use when working with the web,
+due to the fact that it is extremely unsafe and browsers do not allow this.
+                                    (fetch)
+I started trying to solve the problem of using several files thanks to fetch,
+but nothing worked out here either, fetch works well with one file
+ a method of such a solution is possible only if you specifically launch your server for this method that will store the directory with incoming files .
+                                 (html file api)
+After long agonizing hours, I found a solution that met my needs, this is an html file API solution, with which I solved the problem of loading many files.
+
+2. File reading problem
+processing one incoming file when selecting files is not a problem,
+but what if there are several of them, I ran into the problem that when uploading files,
+they literally took priority from each other, i.e. (only the file that was uploaded last was processed) they took turns replacing each other.
+after a few agonizing hours, I didn't think of anything better than using promises and putting all the file information in an array, my solution worked.
+
+3. The problem of finding matches
+The problem of finding matches, with a basic condition {  if(json[value] === userInput_value) }
+that if the value of the key contains multiple values, the value of the user input will never be equal to the value of the key.
+When comparing two json files, a similar condition could work, in extreme cases, you can call JSON.stringify or isEqual()
+But comparing an object with a string is another matter, so I solved it in the following way,
+ I converted the object to a string and called the method(.includes) this allows you to match any user input or character
+Like any method, it has its own conventions, but if we consider that we are purposefully looking for "matches", this method is suitable for solving the problem, because it all depends on what the user enters.
+!-->
+

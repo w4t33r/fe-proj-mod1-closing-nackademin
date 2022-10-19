@@ -1,0 +1,21 @@
+{
+  "belongsTo": "grupp-1",
+  "birthYear": "1987",
+  "discord": "Hanna Arefiardakani#2324",
+  "explanation": "Jag gillar att svara på frågor",
+  "firstname": "Hanna",
+  "github": "Darkshiira",
+  "hash": "a3ae6a1ea929e8b1c609b2e7257cca8e3b06c05cfb2eea6d30d2ebe8bdc9d008",
+  "lastname": "Arefiardakani",
+  "personalityType": "grön",
+  "positiveExperience": "ja",
+  "skills": "Rita, Kolonilott, Hundar",
+  "zodiac": {
+    "name": "Capricorn",
+    "element": "earth",
+    "stone": "ruby",
+    "symbol": "♑",
+    "dateMin": "2000-12-22",
+    "dateMax": "2000-01-20"
+  }
+}

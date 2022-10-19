@@ -1,0 +1,12 @@
+{
+  "belongsTo": "grupp-1",
+  "discord": "Haren#2122",
+  "explanation": "Kul att utforska intressen",
+  "firstname": "Linus",
+  "github": "HarenIO",
+  "hash": "903cbc22b5c6346c708fd98fd313819be7f9788c6fa75722a67183571c0ae200",
+  "lastname": "Härén",
+  "personalityType": "blå",
+  "positiveExperience": "Ja",
+  "skills": "Kampsport, logistik, prokrastinering"
+}

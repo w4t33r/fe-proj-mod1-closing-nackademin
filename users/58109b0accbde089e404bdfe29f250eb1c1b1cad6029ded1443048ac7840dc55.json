@@ -1,0 +1,21 @@
+{
+  "belongsTo": "admin, teachers-lounge",
+  "birthYear": "1983",
+  "discord": "rymdpeter#7078",
+  "explanation": "Jag har nästan alltid kul!",
+  "firstname": "Peter",
+  "github": "rymdpeter",
+  "hash": "ffea0920496c30d842af28375a308aaea11cbcad0113aa37f7eceaf538fb43a1",
+  "lastname": "Karlsson",
+  "personalityType": "blå",
+  "positiveExperience": "ja",
+  "skills": "elbas, programmering, git, webpack, css",
+  "zodiac": {
+    "name": "Gemini",
+    "element": "air",
+    "stone": "agate",
+    "symbol": "♊",
+    "dateMin": "2000-05-22",
+    "dateMax": "2000-06-21"
+  }
+}

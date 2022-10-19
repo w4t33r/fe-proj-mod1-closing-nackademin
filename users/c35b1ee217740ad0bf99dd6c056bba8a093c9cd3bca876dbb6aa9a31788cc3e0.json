@@ -1,0 +1,12 @@
+{
+  "belongsTo": "grupp-2",
+  "discord": "johanbacklin",
+  "explanation": "Väldigt kul att lära sig mer om programmering",
+  "firstname": "Johan",
+  "github": "johanbacklin",
+  "hash": "809092263d335903c7730732a7c8c32de0aa27cf9b06f0edf3b24b9aa89d445d",
+  "lastname": "Bäcklin",
+  "personalityType": "grön",
+  "positiveExperience": "Självklart",
+  "skills": "Volvosteget, träning, javascript"
+}
