@@ -8,15 +8,15 @@ Then Process the data, find all matches in the files and display them in a html 
 a simple list, table, or any other convenient method.
 
 <h3>File upload problem / work with multiple files</h3>
-**(node:fs)**
+<b>(node:fs)</b>
 The problem with working with files is that initially I tried to solve the problem using
 node fs, to work with directories, it was quite simple to process several files until I started including the html template
 I soon realized that there was a problem between the node and the web in js. After reading the documentation, I realized that this method is simply impossible to use when working with the web,
 due to the fact that it is extremely unsafe and browsers do not allow this.<br></br>
-**(fetch)**
+<b>(fetch)</b>
 I started trying to solve the problem of using several files thanks to fetch, but nothing worked out here either, 
 this method of such a solution is possible only if you specifically launch your server for this which will store the directory with incoming files.<br></br>
-**(File API)**
+<b>(File API)</b>
 As a result I found a solution that met my needs, this is a File API solution, with which I solved the problem of loading many files.
 
 <h3>Multiply file reading problem</h3>
