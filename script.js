@@ -81,6 +81,14 @@ function getData(data, value) {
 }
 
 /*
+obj
+if(obj[value] === user.value){
+
+}
+ */
+
+
+/*
 processing and displaying the necessary information received from getData() function in the form of a table.
 the use of the rest operator is optional.
 instead, you can use the following construct.
@@ -108,7 +116,7 @@ const renderFound = ({
     let place = document.querySelector("#data-output");
     place.innerHTML += `<tr>
                         <td>${firstname} ${lastname} </td>
-                        <td>${catched} ${search}</td>
+                        <td class="matched">${catched} ${search}</td>
                         <td>${belongsTo}</td>
                         <td>${discord}</td>
                         <td>${github}</td>
