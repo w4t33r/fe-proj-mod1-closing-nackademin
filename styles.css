@@ -12,6 +12,10 @@ html {
 input[type="file"] {
     display: none;
 }
+.matched {
+    background-color: palegreen;
+
+}
 
 .header {
     width: 100%;
