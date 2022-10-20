@@ -6,7 +6,8 @@ const userInput = document.querySelector('.outData');
 // select file button -> <input type="file" id="file-selector" multiple/>
 const fileSelector = document.getElementById('file-selector');
 // output table -> <table id="table">
-const table = document.getElementById('table')
+const table = document.getElementById('table');
+
 
 /*
 File selection handler
@@ -48,51 +49,66 @@ function renderPromises(file_list) {
     Promise.all(promises).then(fileContents => {
         btn.onclick = () => {
             userInput.innerHTML = search_request.value;
-            if (search_request.value === '')
-                alert(`Search field can't be empty`)
-            else {
-                // fileContents will be an array containing
+            if (search_request.value === '') {
+                alert(`Search field can't be empty`);
+            } else {
                 getData(fileContents, search_request.value);
+                // fileContents will be an array containing
             }
         }
     });
 }
 
 /*
+
 file content processing function, the function iterates - keys, values - until it reaches the required information.
 then checks if files contain user input
 then we call the renderFound() function to display the found matches.
- */
+
+you can use this recursive function for nested objects, (if you need it)
+
+ function getProp(obj) {
+    for(let prop in obj) {
+       if(typeof(obj[prop]) === 'object') {
+        getProp(obj[prop]);
+         } else {
+          console.log('Values:',obj[prop])
+        }
+    }
+ }
+     getProp(object)
+*/
 function getData(data, value) {
     // Clearing the contents of the table, after the first requested matches
     // the table will be cleared on the next search.
     clearTable()
-    const json = Object.values(data)
+    const json = Object.values(data);
     json.forEach(elements => {
         const json_obj = JSON.parse(elements);
-        // key === key, json_obj[key] === value.
+        // key === obj[key], json_obj[key] === obj[value].
         for (let key in json_obj) {
-            const str = json_obj[key].toString().toLowerCase().trim()
-            if (str.includes(value.toLowerCase().trim())) {
-                renderFound(json_obj, key);
+            /*
+          this regular expression does the following.
+          1.replaces double spaces with single spaces.
+          3.replaces single spaces with commas
+          4.removes special characters
+          5.separate lines with a comma
+           */
+            const str = json_obj[key].toString().replace(/ +/g, " ").replace(/ /g, ',').replace(/!/g, '').split(',')
+            for (let word of str) {
+                if (word.toLowerCase().includes(value.toLowerCase()) && word.length === value.length) {
+                    renderFound(json_obj, key);
+                }
             }
         }
     });
 }
-
-/*
-obj
-if(obj[value] === user.value){
-
-}
- */
-
 
 /*
 processing and displaying the necessary information received from getData() function in the form of a table.
 the use of the rest operator is optional.
 instead, you can use the following construct.
-renderFound =(item, catched) => {
+renderFound =(item, cached) => {
 <td>${item.firstname} {item.lastname}</td>
 }
 see the readme.md for a clearer example
@@ -108,7 +124,7 @@ const renderFound = ({
                          positiveExperience,
                          explanation,
                          ...item
-                     }, catched) => {
+                     }, cached) => {
     // visibility of the table true, when displaying information.
     table.style.visibility = 'visible';
     const search = userInput.textContent || userInput.innerText;
@@ -116,7 +132,7 @@ const renderFound = ({
     let place = document.querySelector("#data-output");
     place.innerHTML += `<tr>
                         <td>${firstname} ${lastname} </td>
-                        <td class="matched">${catched} ${search}</td>
+                        <td class="matched">${cached} ${search}</td>
                         <td>${belongsTo}</td>
                         <td>${discord}</td>
                         <td>${github}</td>
@@ -134,6 +150,7 @@ const renderFound = ({
 The function of cleaning the table after re-search for matches.
  */
 const clearTable = () => {
+    table.style.visibility = 'hidden';
     let place = document.querySelector("#data-output");
     place.innerHTML = '';
 }
